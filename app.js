@@ -1,3 +1,12 @@
+$( window ).on('scroll', function(){
+
+  var scrollTop = $(this).scrollTop();
+  $( '.hscroll' ).css({
+    transform: 'translateX('+  ( -1 * scrollTop ) +'px)',
+  });
+
+});
+
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -18,30 +27,49 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-const hiddenElements = document.querySelectorAll('.hidden');
+const hiddenElements = document.querySelectorAll('.hidden:not([class*="circle"]');
 
 hiddenElements.forEach((el) => observer.observe(el));
 
 
+$(window).on('scroll', function () {
+    let height = $('body').height();
+    let scroll = $(document).scrollTop();
 
-
-$(document).ready(function () {
-    var $horizontal = $('.horizontal');
-
-    $(window).scroll(function () {
-        var s = $(this).scrollTop(),
-            d = $(document).height(),
-            c = $(this).height();
-
-        scrollPercent = (s / (d - c));
-
-        var position = ( 2 * scrollPercent * ($(document).width() - $horizontal.width()));
-        
-        $horizontal.css({
-            'left': position
-        });
-    });
+    calcPositionOnViewPort($('.div1'), 0.8);
+    calcPositionOnViewPort($('.div2'), 0.8);
+    calcPositionOnViewPort($('.div3'), 0.8);
 });
+
+function calcPositionOnViewPort(el, mult) {
+ let scrollPos = $(document).scrollTop();
+let viewPortHeight = $(window).height();
+let elementScrollPos = $(el).offset().top;
+
+
+if((scrollPos + viewPortHeight) >  elementScrollPos) {
+let moveVal = (scrollPos + viewPortHeight - elementScrollPos) * mult;
+if($(el).hasClass('move-left')) {
+    $(el).find('.move').css({
+            left: -350 + Math.min(350, moveVal)
+        });
+}
+else if($(el).hasClass('move-right')) {
+    $(el).find('.move').css({
+            right: -350 + Math.min(350, moveVal)
+        });
+}
+else if($(el).hasClass('move-right2')) {
+  $(el).find('.move').css({
+          right: -350 + Math.min(350, moveVal)
+      });
+}
+}
+}
+
+
+
+
 
 
 

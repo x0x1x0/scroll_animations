@@ -9,9 +9,17 @@ body {
 
 }
 
+
+.horizontal {
+    position: fixed;
+    width: 50px;
+    left: 0;
+    top: 50px;
+}
+
 .circle {
+    margin-left: 25%;
     border-radius: 50%;
-    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
     width: 100px;
     height: 100px;
     background: linear-gradient(120deg, #d53369 0%, #daae51 200%);
@@ -43,11 +51,56 @@ section {
     transform: translateX(0);
 }
 
-.horizontal {
-    position: fixed;
-    border-radius: 50%;
-    margin-bottom: 200px;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(120deg, #d53369 0%, #daae51 200%);
+
+
+
+
+
+
+.component {
+    display: flex;
+    justify-content: center;
+    margin-top: 500px;
 }
+
+.left {
+    width: 500px;
+}
+
+.right {
+    width: 500px;
+    margin-left: 50px;
+}
+
+.right img, .left img {
+    width: 100%;
+}
+.component.move-left .title {
+    position: relative;
+    left: -350px;
+}
+.component.move-left .description {
+    position: relative;
+    left: -350px;
+}
+.component.move-right .title {
+    position: relative;
+    right: -350px;
+}
+.component.move-right .description {
+    position: relative;
+    right: -350px;
+}
+
+.component.move-right .title {
+    position: relative;
+    right: -350px;
+}
+.component.move-through .description {
+    position: relative;
+    right: -350px;
+}
+
+
+
+
