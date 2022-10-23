@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+body {
+    background-color: #131316;
+    color: #ffffff;
+    font-family: 'poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+
+}
+
+.circle {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(120deg, #d53369 0%, #daae51 200%);
+}
+
+.heading {
+    text-align: center;
+    margin-top: 50vh;
+}
+section {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+
+.show {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0);
+}
+
+.horizontal {
+    position: fixed;
+    border-radius: 50%;
+    margin-bottom: 200px;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(120deg, #d53369 0%, #daae51 200%);
+}
